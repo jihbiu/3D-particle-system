@@ -1,16 +1,25 @@
-class Plane extends THREE.Object3D{
-    constructor(size2f, position){
+import * as THREE from 'three';
+import { SingletonData } from './singletonData.js';
+export class Plane extends THREE.Object3D{
+    constructor(pos, geometry, material, size){
         super();
         
-        let geometry = new THREE.PlaneGeometry(100.0, 100.0, 30.0);
-        let material = new THREE.MeshBasicMaterial({
-            color: 0xffffff,
-            side: THREE.DoubleSide
-        });
+        const singletonData = new SingletonData();
+        this.scene = singletonData.getScene();
 
-        let mesh = new THREE.Mesh(this.geometry, this.meterial);
+        this.name = "plane";
+        this.position.set(pos.x, pos.y, pos.z);
 
+        this.size = size;
+
+        let mesh = new THREE.Mesh(geometry, material);
+    
+        mesh.receiveShadow = true;
+        
+        mesh.position.set(pos.x, pos.y, pos.z);
 
         this.add(mesh);
+        this.scene.add(this);
     }
 }
+

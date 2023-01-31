@@ -1,3 +1,0 @@
-class SnowParticler extends Particle{
-    
-}
