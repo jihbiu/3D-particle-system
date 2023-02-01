@@ -9,6 +9,3 @@ To install the program: <br />
 - npm install three (to install the library) <br />
 - npm install (to install a local server named vite) <br />
 - npm run dev (to start the local server on port 3000)<br />
-
-I'll try to host the website on a vps, <br />
-but I don't know how it will go
